@@ -26,6 +26,9 @@ if ($acao == "show") {
         $mensagem = "Vídeo não encontrado. :(";
     } else {
         $tituloVideo = $Video->getTitulo();
+        $fonteVideo = $Video->getFonte();
+        $html = $Video->getHTML();
+
     }
     
     $acao = "update";
@@ -40,7 +43,12 @@ if ($acao == "show") {
         $mensagem = "Vídeo não encontrado. :(";
     } else {
         $tituloVideo = $_REQUEST['titulo']; //recebe novo titulo do formulario
+        $fonteVideo = $_REQUEST['fonte'];  //recebe nova fonte do formulario
+
         $Video->setTitulo($tituloVideo);
+        $Video->setFonte($fonteVideo);
+
+        $html = $Video->getHTML();
         $entityManager->flush(); //salva no banco
     }
     header("Location: ./videos.php");  //manda pra visualização de todos os vídeos  
@@ -48,9 +56,14 @@ if ($acao == "show") {
 } elseif ($acao == "insert") {
 
     $tituloVideo = $_REQUEST['titulo']; //titulo vindo do formulario
+    $fonteVideo = $_REQUEST['fonte'];  //recebe nova fonte do formulario
+
 
     $Video = new Video();
     $Video->setTitulo($tituloVideo);
+    $Video->setFonte($fonteVideo);
+
+    $html = $Video->getHTML();
 
     $entityManager->persist($Video); //persistencia (caso dê merda ele mantém os dados salvos)
     $entityManager->flush(); //salva no bd
@@ -70,6 +83,7 @@ if ($acao == "show") {
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/responsivevideo.css">
         
         <!-- Bootstrap -->
         <link href="../plugins/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -136,12 +150,26 @@ if ($acao == "show") {
                 ?>
                 <h1><?=$tituloVideo?></h1>
                 <h2><?=$subtitulo?></h2>
-                <form action="" method="post">
-                    <label for="titulo">Título</label>
-                    <input type="text" name="titulo" id="titulo" value="<?=$tituloVideo?>">
-                    <input type="submit" value="Salvar">
-                    <input type="hidden" value="<?=$acao?>" name="acao">
-                    <input type="hidden" value="<?=$idVideo?>" name="idVideo">
+                
+                
+                <div class="col-md-6">
+                    <?=$html?>
+                </div>
+                
+                <form action="" method="post" class="col-md-6">
+                    <div class="row form-group">
+                        <label class="col-md-4" for="titulo">Título</label>
+                        <input class="col-md-8 form-control" type="text" name="titulo" id="titulo" value="<?=$tituloVideo?>" required>
+                    </div>
+                    <div class="row form-group">
+                        <label class="col-md-4" for="fonte">Link do Vídeo</label>
+                        <input class="col-md-8 form-control" type="text" name="fonte" id="fonte" value="<?=$fonteVideo?>" required>
+                    </div>
+                    <div class="row">
+                        <input type="submit" value="Salvar" class="pull-right btn btn-primary">
+                        <input type="hidden" value="<?=$acao?>" name="acao">
+                        <input type="hidden" value="<?=$idVideo?>" name="idVideo">
+                    </div>
                 </form>
             </div>
         </div>
