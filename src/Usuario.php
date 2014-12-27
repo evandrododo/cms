@@ -28,12 +28,12 @@ class Usuario
         $this->login = $login;
     }
     
-    public function getEmai()
+    public function getEmail()
     {
         return $this->email;
     }
 
-    public function setEmai($email)
+    public function setEmail($email)
     {
         $this->email = $email;
     }

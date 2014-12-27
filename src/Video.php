@@ -11,7 +11,7 @@ class Video
     /** @Column(type="string") **/
     protected $fonte;
     /** @Column(type="integer") **/
-    protected ordem;
+    protected $ordem;
 
     public function getId()
     {
