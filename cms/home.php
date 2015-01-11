@@ -34,8 +34,8 @@ $mensagem = "";
     <!-- Bootstrap -->
     <link href="../plugins/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <link rel="icon" href="../img/favicon-16.png" sizes="16x16">
-    <link rel="icon" href="../img/favicon-32.png" sizes="32x32">
+    <link rel="icon" href="../img/favicon-tesseract-16.png" sizes="16x16">
+    <link rel="icon" href="../img/favicon-tesseract-32.png" sizes="32x32">
 
     <title>Neurônio Produtora - [CMS]</title>
 </head>

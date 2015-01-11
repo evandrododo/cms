@@ -1,0 +1,62 @@
+.video {
+    background-color: rgba(0,0,0,0.65);
+    width:50%;
+    min-height:150px;
+    padding:0;
+    margin:0;
+}
+
+.video.verde {
+    background-color: rgba(0,205,0,0.65);
+}
+.video.azul {
+    background-color: rgba(0,25,200,0.65);
+}
+.video.vermelho {
+    background-color: rgba(200,25,20,0.65);
+}
+.video.magenta {
+    background-color: rgba(200,25,200,0.65);
+}
+html, body {
+    height:100%;
+    padding:0;
+    margin:0;
+    background: white;
+}
+.container {
+    height:100%;
+    padding:0;
+    margin:0;
+}
+.logo {
+    position: absolute;
+    width:100%;
+    top:150px;
+    background: white;
+    min-height:200px;
+}
+@media screen and (min-width: 620px) {
+  /* 10 columns for larger screens */
+    .video {
+        width:33.3333%;
+    }  
+    .logo {
+        width:100%;
+        min-height:250px;
+    }
+}
+@media screen and (min-width: 960px) {
+  /* 10 columns for larger screens */
+    .video {
+        width:25%;    
+        min-height:200px;
+
+    }  
+    .logo {
+        width:50%;
+        left:25%;
+        top:200px;
+        min-height:400px;
+    }
+}
