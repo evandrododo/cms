@@ -1,53 +1,91 @@
-.video {
-    background-color: rgba(0,0,0,0.65);
-    width:50%;
-    min-height:150px;
-    padding:0;
-    margin:0;
-}
-
-.video.verde {
-    background-color: rgba(0,205,0,0.65);
-}
-.video.azul {
-    background-color: rgba(0,25,200,0.65);
-}
-.video.vermelho {
-    background-color: rgba(200,25,20,0.65);
-}
-.video.magenta {
-    background-color: rgba(200,25,200,0.65);
-}
 html, body {
     height:100%;
     padding:0;
     margin:0;
     background: white;
 }
-.container {
-    height:100%;
+.container:after {
+  content: ' ';
+  display: block;
+  clear: both;
+}
+.video {
+    background-color: rgba(0,0,0,0.65);
+    width:50%;
+    min-height:150px;
     padding:0;
     margin:0;
+    z-index:1;
+    opacity: 0.65;
+    transition: 1s all;
+    float:left;
+}
+.video:hover {
+    opacity: 1;
+        transition: 1s all;
+
+}
+.video.verde {
+    background-color: rgba(0,205,0,1);
+}
+.video.azul {
+    background-color: rgba(0,25,200,1);
+}
+.video.vermelho {
+    background-color: rgba(200,25,20,1);
+}
+.video.magenta {
+    background-color: rgba(200,25,200,1);
 }
 .logo {
-    position: absolute;
+    /*position: absolute;*/
     width:100%;
     top:150px;
     background: white;
-    min-height:200px;
+    min-height:300px;
+    float:left;
+    opacity:1;   
+    position:absolute;
+
+}
+.only-small {
+    display:block;
+}
+.only-medium {
+    display:none;
+}
+.only-big {
+    display:none;
 }
 @media screen and (min-width: 620px) {
-  /* 10 columns for larger screens */
+  
+    
+    .only-small {
+        display:none;
+    }
+    .only-medium {
+        display:block;
+    }
+    .only-big {
+        display:none;
+    }
     .video {
         width:33.3333%;
     }  
     .logo {
         width:100%;
-        min-height:250px;
+        min-height:300px;
     }
 }
 @media screen and (min-width: 960px) {
-  /* 10 columns for larger screens */
+    
+    .only-medium {
+        display:none;
+    }
+    
+    .only-big {
+        display:block;
+    }
     .video {
         width:25%;    
         min-height:200px;
