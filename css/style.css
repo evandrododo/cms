@@ -2,7 +2,12 @@ html, body {
     height:100%;
     padding:0;
     margin:0;
-    background: white;
+    background: black;
+    max-width: none;
+    width: 100%;
+}
+h1, h2, h3, h4 {
+  font-family: 'FertigoProRegular',Georgia,serif; 
 }
 .container:after {
   content: ' ';
@@ -17,25 +22,36 @@ html, body {
     margin:0;
     z-index:1;
     opacity: 0.65;
-    transition: 1s all;
+    transition: opacity 1s ease,
+                background-size 0.5s linear;
     float:left;
+    color:white;
+    background-position: center center;
+    background-size: 120%;
+    overflow:hidden;
+    position: relative;
 }
 .video:hover {
     opacity: 1;
-        transition: 1s all;
-
+    transition: opacity 1s ease,
+                background-size 0.5s linear;
+    background-size: 130%;
 }
-.video.verde {
-    background-color: rgba(0,205,0,1);
+.video h2 {
+  margin:0;
+  padding:0.4em 0.6em;
+  background-color: rgba(0,0,0,0.65);
+  max-height:0;
+  box-sizing: border-box;
+  opacity:0;
+  transition: all 1s ease;
+  position: absolute;
+  bottom:0;
+  width:100%;
 }
-.video.azul {
-    background-color: rgba(0,25,200,1);
-}
-.video.vermelho {
-    background-color: rgba(200,25,20,1);
-}
-.video.magenta {
-    background-color: rgba(200,25,200,1);
+.video:hover h2 {
+  opacity:1;
+  max-height: 80%;
 }
 .logo {
     /*position: absolute;*/

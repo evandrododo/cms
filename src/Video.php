@@ -10,7 +10,7 @@ class Video
     protected $titulo;
     /** @Column(type="string") **/
     protected $fonte;
-    /** @Column(type="integer") **/
+    /** @Column(type="integer", nullable=TRUE) **/
     protected $ordem;
 
     public function getId()
@@ -53,7 +53,7 @@ class Video
         if (preg_match("/youtu/i", $this->fonte)) {
             //Vídeo do Youtube
             //regexp que pega o id do video
-            preg_match('/(http).?.?\/?\/?.*\/(?P<idVideo>\w+)/', $this->fonte, $matches);
+            preg_match('/(http).?.?\/?\/?.*\?v\=(?P<idVideo>[\w-_]+)\&?/', $this->fonte, $matches);
             $idVideo = $matches['idVideo'];
             $html = "
             <div class='embed-container'>
@@ -72,5 +72,26 @@ class Video
             $html = "";
         }
         return $html;
+    }
+  
+    public function getImg()
+    {
+      if (preg_match("/youtu/i", $this->fonte)) {
+            //Vídeo do Youtube
+            //regexp que pega o id do video
+            preg_match('/(http).?.?\/?\/?.*\?v\=(?P<idVideo>[\w-_]+)\&?/', $this->fonte, $matches);
+            $idVideo = $matches['idVideo'];
+            $src = "http://img.youtube.com/vi/".$idVideo."/maxresdefault.jpg";
+        } elseif (preg_match("/vimeo/i", $this->fonte)) {
+            //Vídeo do Vimeo
+            //regexp que pega o id do video
+            preg_match('/(http).?.?\/?\/?.*\/(?P<idVideo>\w+)/', $this->fonte, $matches);
+            $idVideo = $matches['idVideo'];
+            $hash = unserialize(file_get_contents("http://vimeo.com/api/v2/video/$idVideo.php"));
+            $src = $hash[0]['thumbnail_large'];  
+        } else {
+            $src = "";
+        }
+        return $src;
     }
 }
