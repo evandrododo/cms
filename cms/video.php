@@ -27,7 +27,7 @@ if ($acao == "show") {
     } else {
         $tituloVideo = $Video->getTitulo();
         $fonteVideo = $Video->getFonte();
-        $html = $Video->getHTML();
+        $htmlVideo = $Video->getHTML();
 
     }
     
@@ -48,10 +48,10 @@ if ($acao == "show") {
         $Video->setTitulo($tituloVideo);
         $Video->setFonte($fonteVideo);
 
-        $html = $Video->getHTML();
+        $htmlVideo = $Video->getHTML();
         $entityManager->flush(); //salva no banco
     }
-    header("Location: ./videos.php");  //manda pra visualização de todos os vídeos  
+   // header("Location: ./videos.php");  //manda pra visualização de todos os vídeos  
     
 } elseif ($acao == "insert") {
 
@@ -63,7 +63,7 @@ if ($acao == "show") {
     $Video->setTitulo($tituloVideo);
     $Video->setFonte($fonteVideo);
 
-    $html = $Video->getHTML();
+    $htmlVideo = $Video->getHTML();
 
     $entityManager->persist($Video); //persistencia (caso dê merda ele mantém os dados salvos)
     $entityManager->flush(); //salva no bd
@@ -153,7 +153,7 @@ if ($acao == "show") {
                 
                 
                 <div class="col-md-6">
-                    <?=$html?>
+                    <?=$htmlVideo?>
                 </div>
                 
                 <form action="" method="post" class="col-md-6">
