@@ -25,8 +25,6 @@ $videos = $videoRepository->findAll();
     <!-- Custom styles for this template -->
     <link href="css/style.css" rel="stylesheet">
     
-
-
 	<!-- Add jQuery library --> <script src="plugins/jquery.min.js"></script>
 
 
