@@ -39,7 +39,7 @@ h1, h2, h3, h4 {
 }
 .video h2 {
   margin:0;
-  padding:0.4em 0.6em;
+  padding:0.8em 1em;
   background-color: rgba(0,0,0,0.65);
   max-height:0;
   box-sizing: border-box;
@@ -47,6 +47,7 @@ h1, h2, h3, h4 {
   transition: all 1s ease;
   position: absolute;
   bottom:0;
+  font-size: 1.2em;
   width:100%;
 }
 .video:hover h2 {
@@ -54,15 +55,70 @@ h1, h2, h3, h4 {
   max-height: 80%;
 }
 .logo {
-    /*position: absolute;*/
-    width:100%;
-    top:150px;
-    background: white;
-    min-height:300px;
-    float:left;
-    opacity:1;   
-    position:absolute;
+  /*position: absolute;*/
+  width:100%;
+  top:150px;
+  background: white;
+  min-height:300px;
+  float:left;
+  opacity:1;   
+  position:absolute;
+  background: -moz-radial-gradient(center, ellipse cover,  rgba(255,255,255,1) 0%, rgba(255,255,255,0.67) 100%); /* FF3.6+ */
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,0.67))); /* Chrome,Safari4+ */
+  background: -webkit-radial-gradient(center, ellipse cover,  rgba(255,255,255,1) 0%,rgba(255,255,255,0.67) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-radial-gradient(center, ellipse cover,  rgba(255,255,255,1) 0%,rgba(255,255,255,0.67) 100%); /* Opera 12+ */
+  background: -ms-radial-gradient(center, ellipse cover,  rgba(255,255,255,1) 0%,rgba(255,255,255,0.67) 100%); /* IE10+ */
+  background: radial-gradient(ellipse at center,  rgba(255,255,255,1) 0%,rgba(255,255,255,0.67) 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#abffffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+  background-size: 100% !important;
+  
+  background-image: url("../img/bgponto.png");
+}
+.logo .imglogo {
+  height:100%;
+  width:100%;
+  background-size: contain;
+  background-image: url("../img/logo.png");
+  background-position: center;
+  margin:0 auto;
+  position: absolute;
+  background-repeat: no-repeat;
+}
+.logo .texto {
+  margin-top: 100%;
+  opacity:0;
+  height:100%;
+  width:100%;
+  background-color: rgba(0,0,0,0.85);
+  position: absolute;
+  font-family: 'FertigoProRegular',Georgia,serif; 
+  font-size:1.5em;
+  box-sizing: border-box;
+  text-shadow: 0 0 5px #550;
+  transition: 1s all 0.5s;
+}
+.logo:hover .texto {
+  margin-top:0;
+  opacity:1;
+  
+  transition: 1s all;
 
+}
+.linkvideofull {
+  display:block;
+  width:10em;
+  height:1.2em;
+  border: 2px solid white;
+  margin:0 auto;
+  text-align: center;
+  padding:0.2em 0;
+}
+.logo .texto span{
+  display:block;
+}
+.logo a {
+  color: white;
+  text-decoration: none;
 }
 .only-small {
     display:block;
@@ -112,5 +168,8 @@ h1, h2, h3, h4 {
         left:25%;
         top:200px;
         min-height:400px;
+    }
+    .logo .texto span{
+      padding:1.2em 2em;
     }
 }

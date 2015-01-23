@@ -11,7 +11,7 @@ $isDevMode = false;
 $dbParams = array(
     'driver'   => 'pdo_mysql',
     'user'     => 'root',
-    'password' => 'h4t3th3l1f3',
+    'password' => '',
     'dbname'   => 'neuronio',
 );
 

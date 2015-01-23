@@ -76,17 +76,22 @@ $videos = $videoRepository->findAll();
         }
         ?>
       
-        <div class="video logo"><img src="/img/logo.png" alt="Neurônio Produtora">
-      
-      	<ul>
-            <li><a class="fancybox-media" href="http://www.youtube.com/watch?v=opj24KnzrWo">Youtube</a></li>
-            <li><a class="fancybox-media" href="http://vimeo.com/47480346">Vimeo</a></li>
-            <li><a class="fancybox-media" href="http://www.metacafe.com/watch/7635964/">Metacafe</a></li>
-            <li><a class="fancybox-media" href="http://www.dailymotion.com/video/xoeylt_electric-guest-this-head-i-hold_music">Dailymotion</a></li>
-            <li><a class="fancybox-media" href="http://twitvid.com/QY7MD">Twitvid</a></li>
-            <li><a class="fancybox-media" href="http://twitpic.com/7p93st">Twitpic</a></li>
-            <li><a class="fancybox-media" href="http://instagr.am/p/IejkuUGxQn">Instagram</a></li>
-        </ul>
+        <div class="video logo">
+          <div class="imglogo"></div>
+          <div class="texto">
+            <div><img src="img/minilogo.png" style="position:relative; float:left;padding:10px;"><img src="img/icones.png" style="position:relative; float:right;padding:10px 30px;"></div>
+            <span>
+              <a href="<?=$Video->getFonte()?>" class="">
+<br>
+              <p>"Acreditamos que não se constrói nada sozinho. </p>
+              <p>Com criatividade, versatilidade e competência, abrimos novos caminhos no audiovisual, realizando projetos singulares.</p>
+              <p>É para isso que existimos: criar e ligar ideias."</p>
+              </a>
+              <a href="<?=$Video->getFonte()?>" class="fancybox-media linkvideofull">
+                Veja nosso vídeo
+              </a>
+            </span>
+          </div>
         </div>
       
     </div>
